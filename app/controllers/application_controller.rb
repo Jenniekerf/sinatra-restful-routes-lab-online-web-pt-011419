@@ -4,6 +4,12 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
   
+  get '/recipes/new' do 
+    @recipe = Recipe.new 
+    @recipe.save
+    erb :new
+  end
+  
   get '/' do 
     erb :index
   end
@@ -13,11 +19,7 @@ class ApplicationController < Sinatra::Base
     erb :index 
   end
   
-  get '/recipes/new' do 
-    @recipe = Recipe.new 
-    @recipe.save
-    erb :new
-  end
+  
   
   post '/recipes' do 
     @recipe = Recipe.create(params)
