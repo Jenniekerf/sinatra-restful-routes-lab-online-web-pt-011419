@@ -25,15 +25,10 @@ class ApplicationController < Sinatra::Base
   
   post '/recipes' do 
     @recipe = Recipe.create(params)
-    @recipe.save
     redirect "/recipes/#{ @recipe.id }"
   end
   
-   
-  
-  
-  
-  patch "/recipes/:id" do
+   patch "/recipes/:id" do
     @recipe = Recipe.find(params[:id])
     @recipe.update(params[:ingredients])
     redirect to "/recipes/#{ @recipe.id }"
