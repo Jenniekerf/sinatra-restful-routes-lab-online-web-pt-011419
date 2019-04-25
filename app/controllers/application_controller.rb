@@ -42,7 +42,6 @@ class ApplicationController < Sinatra::Base
   
   delete '/recipes/:id' do 
     Recipe.destroy(params[:id])
-    redirect to "/art"
   end
 
 end
